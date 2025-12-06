@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HW9 – HTML Table Design (Ushnah Khan)</title>
+  <style>
+    /* ===============================
+       BASIC PAGE LAYOUT (student-authored)
+       =============================== */
+    :root {
+      --header-bg: #1e3a8a;        /* deep indigo for header row */
+      --header-fg: #ffffff;
+      --alt-gray:  #f3f4f6;        /* light gray for alternating rows */
+      --every-3rd: #ffccf1;        /* pale amber for every 3rd row */
+      --hover-blue:#bfdbfe;        /* light blue hover color */
+      --rule:      #e5e7eb;        /* light border color */
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: #fafafa;
+      color: #0f172a;
+    }
+
+    header {
+      max-width: 960px;
+      margin: 24px auto 8px auto;
+      padding: 0 16px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto 64px auto;   /* leave room so you can scroll the PAGE, not the table */
+      padding: 0 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      padding: 16px;
+    }
+
+    h1, h2 {
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+    }
+
+    p, pre {
+      margin: 8px 0;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      background: #f8fafc;
+      border: 1px dashed var(--rule);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    /* ==========================================
+       TABLE STYLES (meet rubric requirements)
+       ========================================== */
+
+    /* TABLE WRAPPER (student-authored)
+       Center the table on the page, but ensure PAGE scrolls, not the table. */
+    .table-wrap {
+      margin: 24px auto;
+      display: grid;
+      place-items: center;            /* table centered horizontally */
+    }
+
+    /* Table dimensions and behavior (student-authored) */
+    table {
+      border-collapse: collapse;
+      width: min(900px, 95%);         /* keeps the table tidy and centered */
+      table-layout: auto;             /* column width corresponds to data */
+      background: #ffffff;
+    }
+
+    /* Cells (student-authored) */
+    th, td {
+      padding: 10px 12px;
+      text-align: center;             /* data is centered */
+      border-bottom: 1px solid var(--rule);
+      vertical-align: middle;
+    }
+
+    /* Sticky header row with distinct colors (LLM-assisted: sticky details) */
+    thead th {
+      position: sticky;
+      top: 0;
+      background: var(--header-bg);
+      color: var(--header-fg);
+      z-index: 2;                     /* ensure it stays above body rows on scroll */
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Row coloring rules:
+       - Alternate white / light gray (student-authored)
+       - Every 3rd row has unique color (LLM-assisted nth-child(3n) override)
+       - Order matters: put 3n last so it overrides alternation. */
+    tbody tr:nth-child(odd)  { background: #ffffff; }
+    tbody tr:nth-child(even) { background: var(--alt-gray); }
+    tbody tr:nth-child(3n)   { background: var(--every-3rd); }
+
+    /* Smooth hover to light blue on body rows only (student-authored) */
+    tbody tr {
+      transition: background-color 200ms ease;
+    }
+    tbody tr:hover {
+      background: var(--hover-blue);
+    }
+
+    /* Bold the 3rd column of each DATA row (student-authored) */
+    tbody td:nth-child(3) {
+      font-weight: 700;
+    }
+
+    /* Make header not react to hover (student-authored & rubric requirement) */
+    thead tr:hover {
+      background: var(--header-bg); /* no change */
+    }
+
+    /* Small-screen tweaks (student-authored) */
+    @media (max-width: 480px) {
+      th, td { padding: 8px 10px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="card">
+      <h1>Homework Week 9: HTML Table Design</h1>
+      <p><strong>Name:</strong> Ushnah Khan</p>
+      <p><strong>Date:</strong> October 23, 2025</p>
+      <p><strong>File Description:</strong> A single-page HTML document implementing a styled table with a sticky header, alternating row colors with every third row uniquely highlighted, full-row hover highlight (header excluded), bold third column, centered layout, and natural column widths. Includes >10 sample rows for scroll testing.</p>
+
+      <h2>Documentation &amp; Honor Code</h2>
+      <pre>
+Virginia Tech Honor Code Pledge:
+As a Hokie, I will conduct myself with honor and integrity at all times.
+I will not lie, cheat, or steal, nor will I accept the actions of those who do.
+— Ushnah Khan (ushnahk)
+
+LLM Statement:
+During the preparation of this assignment, I used ChatGPT to:
+• sanity-check CSS for a sticky table header (position: sticky; top; z-index),
+• confirm :nth-child selectors for alternating rows vs. every third row override,
+• and suggest a concise hover transition pattern.
+I reviewed, adapted, and tested all generated ideas, and I take full responsibility for my submission.
+Inline comments mark which parts were LLM-assisted or student-authored.
+
+Process & Resources:
+1) Sketched rubric requirements into CSS tasks (sticky header, nth-child patterns, hover, centering).
+2) Built a minimal layout to ensure the PAGE scrolls (no fixed heights/overflow on the table).
+3) Verified column widths follow data by using table-layout: auto and avoiding fixed widths.
+4) Populated >10 sample rows to test sticky header and scroll.
+5) Resources: MDN (position: sticky, table-layout), class notes, and brief LLM consultation as documented above.
+      </pre>
+    </div>
+  </header>
+
+  <main>
+    <div class="table-wrap">
+      <!-- Sample data table: ID, Name, Hobby -->
+      <!-- Inline comments indicate authorship per assignment instructions -->
+      <table aria-label="People and Hobbies">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Hobby</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows 1–15 | >10 entries to test scrolling -->
+          <tr><td>001</td><td>Billy Bob</td><td>Reading</td></tr>
+          <tr><td>002</td><td>Bobby Bill</td><td>Writing</td></tr>
+          <tr><td>003</td><td>Sarah Lee</td><td>Art</td></tr>
+          <tr><td>004</td><td>Aidan Fox</td><td>Music</td></tr>
+          <tr><td>005</td><td>Ariel King</td><td>Soccer</td></tr>
+          <tr><td>006</td><td>Ushnah Khan</td><td>Basketball</td></tr>
+          <tr><td>007</td><td>Zoya Khan</td><td>Painting</td></tr>
+          <tr><td>008</td><td>Lea Singh</td><td>Music</td></tr>
+          <tr><td>009</td><td>Annah Bee</td><td>3D Design</td></tr>
+          <tr><td>010</td><td>Mitch Kimmel</td><td>Playing Games</td></tr>
+          <tr><td>011</td><td>Cara diamond</td><td>Making Clothes</td></tr>
+          <tr><td>012</td><td>Maria lopez</td><td>Sleeping</td></tr>
+          <tr><td>013</td><td>Polo Marco</td><td>Swimming</td></tr>
+          <tr><td>014</td><td>Cliffard Red</td><td>Baking</td></tr>
+          <tr><td>015</td><td>Caio Bill</td><td>Cleaning</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add some extra vertical space so the page definitely scrolls (student-authored) -->
+    <div style="height: 40vh;"></div>
+  </main>
+
+  <!-- End of file -->
+</body>
+</html>
