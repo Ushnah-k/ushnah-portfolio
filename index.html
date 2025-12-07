@@ -1,35 +1,66 @@
 <!doctype html>
+<!--
+  Ushnah's Web Portfolio (MVP)
+  Purpose: Simple two-page personal portfolio using HTML & CSS.
+  This is the Home page, which introduces Ushnah and links to Projects, GitHub, and Devpost.
+-->
+
 <html lang="en">
 <head>
+  <!-- Character encoding and responsive viewport for mobile compatibility -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page title that appears in the browser tab -->
   <title>Ushnah • Web Portfolio (MVP)</title>
+
+  <!-- External CSS stylesheet that controls all visual styling -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- === HEADER SECTION === -->
+  <!-- The header contains the navigation bar with links to other pages -->
   <header class="header">
     <nav class="nav">
+      <!-- Brand name on the left -->
       <div class="brand"><span class="dot"></span> Ushnah</div>
+
+      <!-- Navigation links on the right -->
       <div class="links">
+        <!-- 'active' class highlights the current page -->
         <a class="active" href="index.html">Home</a>
         <a href="projects.html">Projects</a>
       </div>
     </nav>
   </header>
 
+  <!-- === MAIN CONTENT SECTION === -->
+  <!-- The main container holds all primary page content -->
   <main class="container">
+
+    <!-- Hero section: introductory message and buttons -->
     <section class="hero">
+
+      <!-- Text card introducing Ushnah -->
       <div class="card">
         <h1>Hi, I’m Ushnah 👋</h1>
-        <p>I’m building cool things in computer science and sharing them here.  
-        This MVP website has two pages — <strong>Home</strong> and <strong>Projects</strong> — made entirely with HTML and CSS.</p>
+        <p>
+          I’m building cool things in computer science and sharing them here.  
+          This MVP website has two pages — <strong>Home</strong> and <strong>Projects</strong> — made entirely with HTML and CSS.
+        </p>
 
+        <!-- Call-to-action buttons -->
         <div class="cta-row">
+          <!-- Internal link to Projects page -->
           <a class="btn" href="projects.html">View Projects</a>
+
+          <!-- External links open in a new tab using target="_blank" -->
           <a class="btn secondary" href="https://github.com/Ushnah-k" target="_blank">GitHub</a>
           <a class="btn secondary" href="https://devpost.com/ushnahk06" target="_blank">Devpost</a>
         </div>
 
+        <!-- Small badges to highlight technologies used -->
         <p class="section">
           <span class="badge">HTML</span>
           <span class="badge">CSS</span>
@@ -37,11 +68,14 @@
         </p>
       </div>
 
+      <!-- Avatar or image card -->
       <div class="card">
+        <!-- Placeholder SVG used until a real profile image is added -->
         <img class="avatar" src="assets/ushnah-avatar.svg" alt="Ushnah avatar placeholder">
       </div>
     </section>
 
+    <!-- Features section explaining what the MVP includes -->
     <section class="section">
       <div class="card">
         <h2>What’s in this MVP?</h2>
@@ -54,9 +88,15 @@
       </div>
     </section>
 
+    <!-- === FOOTER SECTION === -->
+    <!-- Footer repeats on all pages, includes dynamic current year -->
     <footer class="footer">
       © <span id="y"></span> Ushnah Khan • Built with HTML & CSS
-      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+      
+      <!-- JavaScript snippet to automatically display current year -->
+      <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+      </script>
     </footer>
   </main>
 </body>
