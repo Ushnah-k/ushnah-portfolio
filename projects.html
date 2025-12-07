@@ -1,52 +1,113 @@
 <!doctype html>
+<!--
+  Ushnah's Web Portfolio (MVP)
+  File: projects.html
+  Purpose: Display a list of key projects with short descriptions and external links.
+  This page connects to the Home page and uses the same shared CSS for visual consistency.
+-->
+
 <html lang="en">
 <head>
+  <!-- Basic setup: character encoding and responsive scaling -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Browser tab title -->
   <title>Projects • Ushnah (MVP)</title>
+
+  <!-- Shared stylesheet for all pages -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- === HEADER / NAVIGATION BAR === -->
+  <!-- The same navigation bar appears on every page for consistency -->
   <header class="header">
     <nav class="nav">
+      <!-- Brand name on the left -->
       <div class="brand"><span class="dot"></span> Ushnah</div>
+
+      <!-- Navigation links on the right -->
       <div class="links">
+        <!-- Link to Home page -->
         <a href="index.html">Home</a>
+        <!-- Active class highlights the current page -->
         <a class="active" href="projects.html">Projects</a>
       </div>
     </nav>
   </header>
 
+  <!-- === MAIN CONTENT AREA === -->
   <main class="container">
+
+    <!-- Page introduction card -->
     <section class="card">
       <h1>Projects</h1>
-      <p>A few of my favorite creations. Replace these examples with your own!</p>
+      <p>
+        A few of my favorite creations.  
+        Each project card includes a short summary and a link to its live page or repository.
+      </p>
     </section>
 
+    <!-- Grid layout for project cards -->
     <section class="section grid">
-    <article class="card">
-      <h3>CafeSustain</h3>
-      <p>Platform helping local coffee shops adopt sustainable practices using ESG ratings.</p>
-      <p><a href="https://devpost.com/software/cafesustain" target="_blank">View on Devpost →</a></p>
-    </article>
+      
+      <!-- === PROJECT 1: CafeSustain === -->
+      <article class="card">
+        <h3>CafeSustain</h3>
+        <p>
+          Platform helping local coffee shops adopt sustainable practices using ESG ratings.
+          Built for PatriotHacks 2024.
+        </p>
+        <!-- External link opens in a new tab -->
+        <p>
+          <a href="https://devpost.com/software/cafesustain" target="_blank">
+            View on Devpost →
+          </a>
+        </p>
+      </article>
 
-    <article class="card">
-      <h3>Among Us 2D Spin-Off</h3>
-      <p>A simple 2D spin-off built in Python (Pygame) for Creatica Hackathon 2024.</p>
-      <p><a href="https://devpost.com/software/among-us-2d-spin-off" target="_blank">View on Devpost →</a></p>
-    </article>
+      <!-- === PROJECT 2: Among Us 2D Spin-Off === -->
+      <article class="card">
+        <h3>Among Us 2D Spin-Off</h3>
+        <p>
+          A simple 2D spin-off game built in Python with Pygame for Creatica Hackathon 2024.
+          Focused on learning game loops and character control logic.
+        </p>
+        <p>
+          <a href="https://devpost.com/software/among-us-2d-spin-off" target="_blank">
+            View on Devpost →
+          </a>
+        </p>
+      </article>
 
-    <article class="card">
-      <h3>HokieConnect</h3>
-      <p>VT Hacks 13 project helping students find scholarships and housing with Gemini AI integration.</p>
-      <p><a href="https://github.com/Ushnah-k/hokieconnect" target="_blank">GitHub Repo →</a></p>
-    </article>
-</section>
+      <!-- === PROJECT 3: HokieConnect === -->
+      <article class="card">
+        <h3>HokieConnect</h3>
+        <p>
+          VT Hacks 13 project helping students find scholarships and housing,
+          integrating Google Gemini AI for Q&A functionality.
+        </p>
+        <p>
+          <a href="https://github.com/Ushnah-k/hokieconnect" target="_blank">
+            GitHub Repo →
+          </a>
+        </p>
+      </article>
 
+    </section>
+
+    <!-- === FOOTER === -->
+    <!-- Shared footer appears on every page with current year auto-updated -->
     <footer class="footer">
       © <span id="y"></span> Ushnah Khan • Built with HTML & CSS
-      <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+      <!-- Small JavaScript snippet to insert the current year automatically -->
+      <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+      </script>
     </footer>
+
   </main>
 </body>
 </html>
